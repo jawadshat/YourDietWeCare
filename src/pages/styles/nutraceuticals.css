@@ -1,0 +1,6 @@
+@import "./specialty-base.css";
+
+.nutraceuticals-page .sp-hero {
+  background: radial-gradient(circle at 80% 0%, rgba(143, 206, 183, 0.2), transparent 43%),
+    linear-gradient(145deg, #131f2d, #1f3146 52%, #122030);
+}

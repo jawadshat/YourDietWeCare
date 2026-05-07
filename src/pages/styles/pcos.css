@@ -1,0 +1,6 @@
+@import "./specialty-base.css";
+
+.pcos-page .sp-hero {
+  background: radial-gradient(circle at 80% 0%, rgba(232, 168, 152, 0.3), transparent 45%),
+    linear-gradient(145deg, #122419, #1d4030 52%, #11261c);
+}

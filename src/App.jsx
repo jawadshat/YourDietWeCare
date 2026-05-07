@@ -1,4 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
+import PcosPage from "./pages/PcosPage";
+import WeightLossPage from "./pages/WeightLossPage";
+import SkinPage from "./pages/SkinPage";
+import NutraceuticalsPage from "./pages/NutraceuticalsPage";
 
 const pageHtml = `
 <div id="cur"></div>
@@ -10,7 +14,15 @@ const pageHtml = `
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#specialties">Specialties</a></li>
+    <li class="nav-specialties">
+      <a href="#specialties">Specialties ▾</a>
+      <div class="nav-specialties-menu">
+        <a href="/specialties/pcos-hormonal">PCOS & Hormonal Balance</a>
+        <a href="/specialties/weight-loss">Weight Loss & Body Transformation</a>
+        <a href="/specialties/skin-nutrition">Skin Nutrition & Glow Diet</a>
+        <a href="/specialties/nutraceuticals">Nutraceuticals Guidance</a>
+      </div>
+    </li>
     <li><a href="#why">Why Diet?</a></li>
     <li><a href="#trust">About</a></li>
   </ul>
@@ -20,7 +32,10 @@ const pageHtml = `
   </button>
   <div id="mobileMenu" class="mobile-menu">
     <a href="#services">Services</a>
-    <a href="#specialties">Specialties</a>
+    <a href="/specialties/pcos-hormonal">PCOS & Hormonal Balance</a>
+    <a href="/specialties/weight-loss">Weight Loss & Body Transformation</a>
+    <a href="/specialties/skin-nutrition">Skin Nutrition & Glow Diet</a>
+    <a href="/specialties/nutraceuticals">Nutraceuticals Guidance</a>
     <a href="#why">Why Diet?</a>
     <a href="#trust">About</a>
     <a href="#cta" class="mobile-menu-cta">Free Consultation</a>
@@ -117,10 +132,10 @@ const pageHtml = `
       <p class="sec-p">We specialize in using food therapeutically to address specific health conditions.</p>
     </div>
     <div class="spec-grid rv">
-      <div class="sc"><span class="sc-e">🌸</span><div class="sc-name">PCOS & Hormonal Balance</div><p class="sc-desc">Anti-inflammatory, low-GI nutrition for hormone balance.</p></div>
-      <div class="sc"><span class="sc-e">⚖️</span><div class="sc-name">Weight Loss & Body Transformation</div><p class="sc-desc">Science-backed strategy that melts fat while preserving muscle.</p></div>
-      <div class="sc"><span class="sc-e">✨</span><div class="sc-name">Skin Nutrition & Glow Diet</div><p class="sc-desc">Collagen-supporting foods for clear and radiant skin.</p></div>
-      <div class="sc"><span class="sc-e">💊</span><div class="sc-name">Nutraceuticals Guidance</div><p class="sc-desc">Evidence-based supplement guidance for your body needs.</p></div>
+      <a class="sc sc-link-card" href="/specialties/pcos-hormonal"><span class="sc-e">🌸</span><div class="sc-name">PCOS & Hormonal Balance</div><p class="sc-desc">Anti-inflammatory, low-GI nutrition for hormone balance.</p><div class="sc-link">View Full Program →</div></a>
+      <a class="sc sc-link-card" href="/specialties/weight-loss"><span class="sc-e">⚖️</span><div class="sc-name">Weight Loss & Body Transformation</div><p class="sc-desc">Science-backed strategy that melts fat while preserving muscle.</p><div class="sc-link">View Full Program →</div></a>
+      <a class="sc sc-link-card" href="/specialties/skin-nutrition"><span class="sc-e">✨</span><div class="sc-name">Skin Nutrition & Glow Diet</div><p class="sc-desc">Collagen-supporting foods for clear and radiant skin.</p><div class="sc-link">View Full Program →</div></a>
+      <a class="sc sc-link-card" href="/specialties/nutraceuticals"><span class="sc-e">💊</span><div class="sc-name">Nutraceuticals Guidance</div><p class="sc-desc">Evidence-based supplement guidance for your body needs.</p><div class="sc-link">View Full Program →</div></a>
     </div>
   </div>
 </section>
@@ -150,7 +165,21 @@ const pageHtml = `
 `;
 
 export default function App() {
+  const currentPath = useMemo(() => window.location.pathname, []);
+  const pathPages = {
+    "/specialties/pcos-hormonal": <PcosPage />,
+    "/specialties/weight-loss": <WeightLossPage />,
+    "/specialties/skin-nutrition": <SkinPage />,
+    "/specialties/nutraceuticals": <NutraceuticalsPage />
+  };
+  const currentSpecialtyPage = pathPages[currentPath];
+
   useEffect(() => {
+    if (currentSpecialtyPage) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      return undefined;
+    }
+
     const cur = document.getElementById("cur");
     const curR = document.getElementById("cur-r");
     const onMouse = (e) => {
@@ -225,6 +254,8 @@ export default function App() {
 
     const nav = document.getElementById("nav");
     const navToggle = document.getElementById("navToggle");
+    const navSpecialties = document.querySelector(".nav-specialties");
+    const navSpecialtiesTrigger = document.querySelector(".nav-specialties > a");
     const mobileMenuLinks = document.querySelectorAll("#mobileMenu a");
     const toggleMobileMenu = () => {
       if (!nav || !navToggle) return;
@@ -237,6 +268,16 @@ export default function App() {
       navToggle.setAttribute("aria-expanded", "false");
     };
     navToggle?.addEventListener("click", toggleMobileMenu);
+    const toggleSpecialties = (e) => {
+      e.preventDefault();
+      navSpecialties?.classList.toggle("open");
+    };
+    navSpecialtiesTrigger?.addEventListener("click", toggleSpecialties);
+    const onDocClick = (e) => {
+      if (!navSpecialties) return;
+      if (!navSpecialties.contains(e.target)) navSpecialties.classList.remove("open");
+    };
+    document.addEventListener("mousedown", onDocClick);
     mobileMenuLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
     const onResize = () => {
       if (window.innerWidth > 960) closeMobileMenu();
@@ -251,9 +292,15 @@ export default function App() {
       counterObserver.disconnect();
       btn?.removeEventListener("click", onClick);
       navToggle?.removeEventListener("click", toggleMobileMenu);
+      navSpecialtiesTrigger?.removeEventListener("click", toggleSpecialties);
+      document.removeEventListener("mousedown", onDocClick);
       mobileMenuLinks.forEach((link) => link.removeEventListener("click", closeMobileMenu));
     };
-  }, []);
+  }, [currentSpecialtyPage]);
+
+  if (currentSpecialtyPage) {
+    return currentSpecialtyPage;
+  }
 
   return <div dangerouslySetInnerHTML={{ __html: pageHtml }} />;
 }
