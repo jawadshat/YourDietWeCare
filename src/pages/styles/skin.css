@@ -1,6 +1,0 @@
-@import "./specialty-base.css";
-
-.skin-page .sp-hero {
-  background: radial-gradient(circle at 78% 8%, rgba(232, 168, 152, 0.27), transparent 44%),
-    linear-gradient(145deg, #2a2018, #3c2d21 55%, #251b15);
-}

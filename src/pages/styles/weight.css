@@ -1,6 +1,0 @@
-@import "./specialty-base.css";
-
-.weight-page .sp-hero {
-  background: radial-gradient(circle at 78% 12%, rgba(200, 164, 86, 0.22), transparent 46%),
-    linear-gradient(150deg, #101b14, #213126 52%, #101a13);
-}

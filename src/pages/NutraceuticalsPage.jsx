@@ -1,56 +1,111 @@
-import React from "react";
-import SpecialtyNavbar from "../components/SpecialtyNavbar";
+import SiteNavbar from "../components/SiteNavbar";
 import GlobalCtaFooter from "../components/GlobalCtaFooter";
-import "./styles/nutraceuticals.css";
+import "./styles/specialty-pages.css";
 
 export default function NutraceuticalsPage() {
   return (
     <div className="sp-page nutraceuticals-page">
-      <SpecialtyNavbar />
+      <SiteNavbar />
       <header className="sp-hero">
-        <div className="sp-hero-mesh"></div>
-        <div className="sp-hero-grid"></div>
+        <div className="sp-hero-mesh" />
+        <div className="sp-hero-grid" />
         <div className="sp-hero-inner sp-hero-layout">
           <div>
             <p className="sp-kicker">💊 Specialty Program</p>
-            <h1 className="sp-hero-title">Nutraceuticals<br /><em>& Supplement</em><br /><span className="line-green">Guidance</span></h1>
+            <h1 className="sp-hero-title">
+              Nutraceuticals
+              <br />
+              <em>& Supplement</em>
+              <br />
+              <span className="line-green">Guidance</span>
+            </h1>
             <p>
-              Evidence-based supplement planning so you use the right nutrients, in the right dosage, at the right time for your goals.
+              Evidence-based supplement planning so you use the right nutrients, practical doses, and smart timing — aligned with food first, pills second.
             </p>
             <div className="sp-hero-meta">
-              <span>Evidence Based</span>
-              <span>Safe Dosing</span>
-              <span>Goal-Oriented Stack</span>
+              <span>Evidence based</span>
+              <span>Safe dosing</span>
+              <span>Goal-oriented stack</span>
             </div>
           </div>
           <div className="sp-hero-right">
             <div className="sp-orb-wrap">
-              <div className="sp-orb one"></div>
-              <div className="sp-orb two"></div>
-              <div className="sp-orb three"></div>
+              <div className="sp-orb one" />
+              <div className="sp-orb two" />
+              <div className="sp-orb three" />
               <div className="sp-orb-core">💊</div>
             </div>
-            <div className="sp-float small"><div className="sp-float-tag">Stack Type</div><div className="sp-float-val">Goal-Based</div><div className="sp-float-sub">no unnecessary pills</div></div>
-            <div className="sp-float big"><div className="sp-float-tag">Protocol</div><div className="sp-float-val">Safe Timing</div><div className="sp-float-sub">absorption optimized</div></div>
+            <div className="sp-float small">
+              <div className="sp-float-tag">Stack type</div>
+              <div className="sp-float-val">Goal-based</div>
+              <div className="sp-float-sub">no unnecessary pills</div>
+            </div>
+            <div className="sp-float big">
+              <div className="sp-float-tag">Protocol</div>
+              <div className="sp-float-val">Safe timing</div>
+              <div className="sp-float-sub">absorption optimized</div>
+            </div>
           </div>
         </div>
       </header>
       <section className="sp-section">
-        <h2>What We Optimize</h2>
+        <div className="sp-section-head">
+          <div className="sp-section-eye">Optimization</div>
+          <h2>
+            What we <em>optimize</em>
+          </h2>
+        </div>
         <div className="sp-cards">
-          <article><div className="sp-card-logo">🧪</div><h3>Nutrient Gap Analysis</h3><p>Identify true nutrient gaps and symptom-linked deficiencies.</p></article>
-          <article><div className="sp-card-logo">🏷️</div><h3>Quality Selection</h3><p>Select clinically relevant supplement categories and forms.</p></article>
-          <article><div className="sp-card-logo">⏰</div><h3>Absorption Timing</h3><p>Improve absorption via timing, pairing, and daily scheduling.</p></article>
-          <article><div className="sp-card-logo">🛡️</div><h3>Safety Control</h3><p>Avoid unnecessary or conflicting supplement combinations.</p></article>
+          <article>
+            <div className="sp-card-logo">🧪</div>
+            <h3>Nutrient gap analysis</h3>
+            <p>Identify real gaps and symptom-linked priorities instead of trendy stacks.</p>
+          </article>
+          <article>
+            <div className="sp-card-logo">🏷️</div>
+            <h3>Quality selection</h3>
+            <p>Forms and categories that match clinical relevance for your profile.</p>
+          </article>
+          <article>
+            <div className="sp-card-logo">⏰</div>
+            <h3>Absorption timing</h3>
+            <p>Better uptake via pairing, spacing, and a realistic daily schedule.</p>
+          </article>
+          <article>
+            <div className="sp-card-logo">🛡️</div>
+            <h3>Safety control</h3>
+            <p>Avoid redundant or conflicting combinations with clear rationale.</p>
+          </article>
         </div>
       </section>
       <section className="sp-section alt">
-        <h2>Your Guidance Includes</h2>
+        <div className="sp-section-head">
+          <div className="sp-section-eye">Guidance package</div>
+          <h2>
+            What <em>you receive</em>
+          </h2>
+        </div>
         <div className="sp-cards">
-          <article><div className="sp-card-logo">📦</div><h3>Goal-Based Stack</h3><p>Personalized supplement stack by objective and lifestyle.</p></article>
-          <article><div className="sp-card-logo">📅</div><h3>Daily Schedule</h3><p>Structured intake routine with practical reminders.</p></article>
-          <article><div className="sp-card-logo">🍱</div><h3>Food Integration</h3><p>Combine food and supplements in a realistic sustainable way.</p></article>
-          <article><div className="sp-card-logo">🔍</div><h3>Ongoing Optimization</h3><p>Regular review and updates for better effectiveness.</p></article>
+          <article>
+            <div className="sp-card-logo">📦</div>
+            <h3>Goal-based stack</h3>
+            <p>A streamlined stack mapped to your objective, budget, and lifestyle.</p>
+          </article>
+          <article>
+            <div className="sp-card-logo">📅</div>
+            <h3>Daily schedule</h3>
+            <p>Simple intake rhythm that fits work, travel, and family routines.</p>
+          </article>
+          <article>
+            <div className="sp-card-logo">🍱</div>
+            <h3>Food integration</h3>
+            <p>Combine food and supplements sustainably — no overwhelm.</p>
+          </article>
+          <article>
+            <div className="sp-card-logo">🔍</div>
+            <h3>Ongoing optimization</h3>
+            <p>Review and refine as goals shift or new labs appear.</p>
+          </article>
         </div>
       </section>
       <GlobalCtaFooter />

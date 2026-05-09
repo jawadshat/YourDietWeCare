@@ -1,0 +1,439 @@
+/* Specialty program pages — aligned with landing.css theme (Fraunces + Geist, cream & forest green) */
+
+.sp-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 8% 0%, rgba(31, 92, 58, 0.06), transparent 35%), var(--bg);
+  cursor: none;
+}
+
+.sp-hero {
+  padding: 8.5rem 5vw 4rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Page-specific hero tint */
+.pcos-page .sp-hero {
+  background: radial-gradient(circle at 82% 4%, rgba(212, 120, 90, 0.28), transparent 42%),
+    linear-gradient(155deg, #0f1f17 0%, #1a4030 48%, #0f1813 100%);
+}
+
+.weight-page .sp-hero {
+  background: radial-gradient(circle at 78% 12%, rgba(212, 120, 90, 0.18), transparent 46%),
+    linear-gradient(155deg, #112017 0%, #1e3829 50%, #101812 100%);
+}
+
+.skin-page .sp-hero {
+  background: radial-gradient(circle at 76% 10%, rgba(212, 120, 90, 0.22), transparent 44%),
+    linear-gradient(155deg, #231c18 0%, #3d2e26 52%, #1a1410 100%);
+}
+
+.nutraceuticals-page .sp-hero {
+  background: radial-gradient(circle at 80% 0%, rgba(130, 200, 170, 0.18), transparent 43%),
+    linear-gradient(155deg, #121f28 0%, #1f3545 50%, #121d26 100%);
+}
+
+.sp-hero-mesh {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 75% 70% at 22% 45%, rgba(31, 92, 58, 0.28) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 55% at 82% 18%, rgba(212, 120, 90, 0.12) 0%, transparent 52%),
+    radial-gradient(ellipse 50% 65% at 72% 82%, rgba(255, 255, 255, 0.04) 0%, transparent 55%);
+  animation: spMeshShift 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.sp-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+}
+
+.sp-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.sp-hero-layout {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.sp-hero-right {
+  position: relative;
+  min-height: 340px;
+  animation: spFadeUp 0.85s ease 0.15s both;
+}
+
+.sp-orb-wrap {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.sp-orb {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sp-orb.one {
+  width: 300px;
+  height: 300px;
+  animation: spSpin 36s linear infinite;
+}
+
+.sp-orb.two {
+  width: 220px;
+  height: 220px;
+  border-color: rgba(212, 120, 90, 0.35);
+  animation: spSpin 24s linear infinite reverse;
+}
+
+.sp-orb.three {
+  width: 145px;
+  height: 145px;
+  border-color: rgba(130, 210, 150, 0.35);
+  animation: spSpin 17s linear infinite;
+}
+
+.sp-orb-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.2rem;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.35));
+  animation: spSway 5s ease-in-out infinite;
+}
+
+.sp-float {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 0.9rem 1rem;
+  min-width: 168px;
+}
+
+.sp-float.small {
+  top: 18px;
+  right: 0;
+  animation: spBob 5.2s ease-in-out infinite;
+}
+
+.sp-float.big {
+  bottom: 12px;
+  left: 0;
+  animation: spBob 6.4s ease-in-out infinite reverse;
+}
+
+.sp-float-tag {
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(130, 210, 150, 0.95);
+}
+
+.sp-float-val {
+  font-family: "Fraunces", serif;
+  font-size: 1.22rem;
+  color: #fff;
+  line-height: 1.2;
+  margin-top: 0.25rem;
+}
+
+.sp-float-sub {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 0.25rem;
+}
+
+.sp-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(130, 210, 150, 0.95);
+}
+
+.sp-hero h1 {
+  margin: 0.85rem 0 1rem;
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+  animation: spFadeUp 0.78s ease both;
+}
+
+.sp-hero-title em {
+  font-style: italic;
+  color: rgba(130, 210, 150, 1);
+}
+
+.sp-hero-title .line-green {
+  color: rgba(130, 210, 150, 1);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.sp-hero p {
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.82;
+  font-size: 0.98rem;
+  position: relative;
+  z-index: 1;
+  animation: spFadeUp 0.78s ease 0.1s both;
+}
+
+.sp-hero-meta {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sp-hero-meta span {
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.4rem 0.62rem;
+}
+
+.sp-section {
+  padding: 5rem 5vw;
+  animation: spFadeUp 0.65s ease both;
+}
+
+.sp-section.alt {
+  background: var(--warm);
+}
+
+.sp-section-head {
+  max-width: 720px;
+  margin-bottom: 2.2rem;
+}
+
+.sp-section-eye {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--g);
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+}
+
+.sp-section-eye::before {
+  content: "";
+  width: 14px;
+  height: 1.5px;
+  background: var(--g);
+}
+
+.sp-section h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3.5vw, 2.85rem);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+}
+
+.sp-section h2 em {
+  font-style: italic;
+  color: var(--g);
+}
+
+.sp-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.15rem;
+}
+
+.sp-cards article {
+  background: var(--cream);
+  border: 1px solid var(--b2);
+  border-left: 3px solid var(--g);
+  padding: 1.45rem 1.25rem 1.35rem;
+  line-height: 1.55;
+  color: var(--ink);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  animation: spCardIn 0.55s ease both;
+  position: relative;
+}
+
+.sp-cards article:nth-child(2) {
+  animation-delay: 0.06s;
+}
+.sp-cards article:nth-child(3) {
+  animation-delay: 0.12s;
+}
+.sp-cards article:nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+.sp-cards article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px rgba(14, 12, 9, 0.08);
+  border-color: var(--border);
+}
+
+.sp-cards article h3 {
+  margin: 0.7rem 0 0.45rem;
+  font-family: "Fraunces", serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.sp-cards article p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.74;
+  color: var(--muted);
+}
+
+.sp-card-logo {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--g-dim);
+  border: 1px solid var(--border);
+  font-size: 1.15rem;
+}
+
+@keyframes spFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spMeshShift {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.78;
+  }
+}
+
+@keyframes spSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spSway {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(-3deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(3deg);
+  }
+}
+
+@keyframes spBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@media (max-width: 960px) {
+  .sp-page {
+    cursor: auto;
+  }
+  .sp-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .sp-hero-right {
+    min-height: auto;
+    max-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .sp-cards {
+    grid-template-columns: 1fr;
+  }
+  .sp-hero-meta span {
+    font-size: 0.55rem;
+  }
+  .sp-orb-wrap {
+    width: 240px;
+    height: 240px;
+  }
+  .sp-orb.one {
+    width: 240px;
+    height: 240px;
+  }
+  .sp-orb.two {
+    width: 178px;
+    height: 178px;
+  }
+  .sp-orb.three {
+    width: 112px;
+    height: 112px;
+  }
+  .sp-orb-core {
+    font-size: 2.45rem;
+  }
+  .sp-float {
+    position: static;
+    margin-top: 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
